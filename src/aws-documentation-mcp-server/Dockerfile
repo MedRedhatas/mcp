@@ -13,7 +13,7 @@
 # limitations under the License.
 
 #FROM public.ecr.aws/sam/build-python3.13:1.137.1-20250411084548
-FROM public.ecr.aws/sam/build-python3.13@sha256:0df1547849c376aa21f9c726c0d71c4974415ed4405256f8d79f8c25716a9c63 AS uv
+FROM public.ecr.aws/sam/build-python3.13@sha256:f094bca7aedc459cfd87c725ce19b33dffaa1e1c153e97659f847e3e5bf2475a AS uv
 
 # Install the project into `/app`
 WORKDIR /app
@@ -47,7 +47,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 # Make the directory just in case it doesn't exist
 RUN mkdir -p /root/.local
 
-FROM public.ecr.aws/sam/build-python3.13@sha256:0df1547849c376aa21f9c726c0d71c4974415ed4405256f8d79f8c25716a9c63
+FROM public.ecr.aws/sam/build-python3.13@sha256:f094bca7aedc459cfd87c725ce19b33dffaa1e1c153e97659f847e3e5bf2475a
 
 # Place executables in the environment at the front of the path and include other binaries
 ENV PATH="/app/.venv/bin:$PATH:/usr/sbin"
